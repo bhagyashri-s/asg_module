@@ -7,7 +7,8 @@ resource "aws_autoscaling_group" "dashboard-asg" {
   min_size            = var.min_size
   max_size            = var.max_size
   desired_capacity    = var.desired_capacity
-  vpc_zone_identifier = data.aws_subnets.selected.ids
+  #vpc_zone_identifier = data.aws_subnets.selected.ids
+  availability_zones = ["ap-south-1a","ap-south-1b"]
 
   target_group_arns = [aws_alb_target_group.dashboard_target_group.arn]
 
